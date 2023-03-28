@@ -39,11 +39,11 @@ public class RowGameGUI implements View {
         gui.add(messages, BorderLayout.SOUTH);
 
         componentA.init(controller, game);
-        componentList.add(componentA);
+        this.addComponent(componentA);
 
         ComponentC componentC = new ComponentC();
         componentC.init(messages);
-        componentList.add(componentC);
+        this.addComponent(componentC);
 
         reset.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -76,5 +76,13 @@ public class RowGameGUI implements View {
      */
     public void endGame() {
         componentA.endGame();
+    }
+
+    public void addComponent(View component) {
+        componentList.add(component);
+    }
+
+    public void removeComponent(View component) {
+        componentList.remove(component);
     }
 }
