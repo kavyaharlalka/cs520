@@ -10,6 +10,7 @@ public class ComponentC implements View {
 
     public void init(JPanel messages) {
         playerturn.setText("Player 1 to play 'X'");
+        playerturn.setEditable(false);
         messages.add(playerturn);
     }
     
