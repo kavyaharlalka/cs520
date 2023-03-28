@@ -1,5 +1,6 @@
 package view;
 
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import model.RowGameModel;
@@ -7,10 +8,11 @@ import model.RowGameModel;
 public class ComponentC implements View {
     private JTextArea playerturn = new JTextArea();
 
-    public ComponentC() {
+    public void init(JPanel messages) {
         playerturn.setText("Player 1 to play 'X'");
+        messages.add(playerturn);
     }
-
+    
     @Override
     public void update(RowGameModel model, int row, int column) {
         if (model.getFinalResult() != null) {
@@ -21,9 +23,5 @@ public class ComponentC implements View {
         } else{
             this.playerturn.setText("'O': Player 2");
         }
-    }
-    
-    public JTextArea getPlayerTurn() {
-        return this.playerturn;
     }
 }

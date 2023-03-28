@@ -2,7 +2,6 @@ package view;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JTextArea;
 import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.event.*;
@@ -14,10 +13,10 @@ import controller.RowGameController;
 public class RowGameGUI implements View {
     public JFrame gui = new JFrame("Tic Tac Toe");
     public RowGameModel gameModel = new RowGameModel();
-    public JButton[][] blocks = new JButton[3][3];
     public JButton reset = new JButton("Reset");
 
     private ArrayList<View> componentList = new ArrayList<>();
+    private ComponentA componentA = new ComponentA();
 
     /**
      * Creates a new game initializing the GUI.
@@ -40,30 +39,18 @@ public class RowGameGUI implements View {
         gui.add(options, BorderLayout.CENTER);
         gui.add(messages, BorderLayout.SOUTH);
 
-        ComponentC componentC = new ComponentC();
-        componentList.add(componentC);
+        componentA.init(controller, game);
+        componentList.add(componentA);
 
-        messages.add(componentC.getPlayerTurn());
+        ComponentC componentC = new ComponentC();
+        componentC.init(messages);
+        componentList.add(componentC);
 
         reset.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 controller.resetGame();
             }
         });
-
-        // Initialize a JButton for each cell of the 3x3 game board.
-        for(int row = 0; row<3; row++) {
-            for(int column = 0; column<3 ;column++) {
-                blocks[row][column] = new JButton();
-                blocks[row][column].setPreferredSize(new Dimension(75,75));
-                game.add(blocks[row][column]);
-                blocks[row][column].addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-			controller.move((JButton)e.getSource());
-                    }
-                });
-            }
-        }
     }
 
     /**
@@ -75,10 +62,10 @@ public class RowGameGUI implements View {
      * @param column The column that contains the block
      */
     public void updateBlock(RowGameModel gameModel, int row, int column) {
-        if (row >= 0) {
-            blocks[row][column].setText(gameModel.blocksData[row][column].getContents());
-            blocks[row][column].setEnabled(gameModel.blocksData[row][column].getIsLegalMove());
-        }
+        // if (row >= 0) {
+        //     blocks[row][column].setText(gameModel.blocksData[row][column].getContents());
+        //     blocks[row][column].setEnabled(gameModel.blocksData[row][column].getIsLegalMove());
+        // }
 
         for (View component : componentList) {
             component.update(gameModel, row, column);
@@ -89,5 +76,16 @@ public class RowGameGUI implements View {
     public void update(RowGameModel model, int row, int column) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
+    }
+
+    public boolean checkIfBlockAtRowCol(JButton block, int row, int column) {
+        return componentA.checkIfBlockAtRowCol(block, row, column);
+    }
+
+    /**
+     * Ends the game disallowing further player turns.
+     */
+    public void endGame() {
+        componentA.endGame();
     }
 }
