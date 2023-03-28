@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import controller.RowGameController;
+import model.RowBlockModel;
 import model.RowGameModel;
 
 public class ComponentA implements View {
@@ -43,9 +44,11 @@ public class ComponentA implements View {
     @Override
     public void update(RowGameModel model, int row, int column) {
         if (row >= 0) {
-            blocks[row][column].setText(model.blocksData[row][column].getContents());
-            blocks[row][column].setEnabled(model.blocksData[row][column].getIsLegalMove());
+            JButton currentBlock = blocks[row][column];
+            RowBlockModel currentBlockModel = model.blocksData[row][column];
+            String blockContent = currentBlockModel.getContents();
+            currentBlock.setText(blockContent);
+            currentBlock.setEnabled(blockContent.isEmpty() ? currentBlockModel.getIsLegalMove() : false);
         }
     }
-    
 }
