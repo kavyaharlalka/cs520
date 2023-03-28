@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import model.Player;
 import model.RowBlockModel;
 import controller.RowGameController;
 
@@ -24,7 +25,7 @@ public class TestExample {
 
     @Test
     public void testNewGame() {
-        assertEquals ("1", game.gameModel.player);
+        assertEquals (Player.Player_1, game.gameModel.getCurrentPlayer());
         assertEquals (9, game.gameModel.movesLeft);
     }
 
