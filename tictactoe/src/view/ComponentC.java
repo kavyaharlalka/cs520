@@ -3,6 +3,7 @@ package view;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import model.Player;
 import model.RowGameModel;
 
 public class ComponentC implements View {
@@ -19,10 +20,15 @@ public class ComponentC implements View {
         if (model.getFinalResult() != null) {
             this.playerturn.setText(model.getFinalResult());
         }
-        else if(model.movesLeft%2 == 1) {
-            this.playerturn.setText("'X': Player 1");
-        } else{
-            this.playerturn.setText("'O': Player 2");
+        else if (row < 0 || column < 0) {
+            playerturn.setText("Player 1 to play 'X'");
+        }
+        else if(!model.blocksData[row][column].getContents().isEmpty()) {
+            if(model.getCurrentPlayer() == Player.Player_2) {
+                this.playerturn.setText("'X': Player 1");
+            } else {
+                this.playerturn.setText("'O': Player 2");
+            }
         }
     }
 }

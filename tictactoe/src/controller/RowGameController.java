@@ -6,10 +6,12 @@ import javax.swing.JTextArea;
 import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Map;
 
 import model.Player;
 import model.RowGameModel;
 import view.RowGameGUI;
+import view.RowColValue;
 
 public class RowGameController {
     public RowGameModel gameModel;
@@ -387,7 +389,21 @@ public class RowGameController {
 		gameView.update(gameModel,row,column);
             }
         }
-		
-        // gameView.playerturn.setText("Player 1 to play 'X'");
+
+		// Reset Component C
+		gameView.update(gameModel,-1,-1);
     }
+
+	public void undoLastMove(Map<Player, RowColValue> playerToRowColValueMap) {
+		RowColValue currentPlayerPrevMoveRowColValue = playerToRowColValueMap.get(gameModel.getCurrentPlayer());
+		if (currentPlayerPrevMoveRowColValue != null) {
+			int currentPlayerPrevMoveRowValue = currentPlayerPrevMoveRowColValue.getRowValue();
+			int currentPlayerPrevMoveColValue = currentPlayerPrevMoveRowColValue.getColValue();
+
+			gameModel.movesLeft++;
+			gameModel.blocksData[currentPlayerPrevMoveRowValue][currentPlayerPrevMoveColValue].reset();
+			gameModel.blocksData[currentPlayerPrevMoveRowValue][currentPlayerPrevMoveColValue].setIsLegalMove(true);
+			gameView.update(gameModel,currentPlayerPrevMoveRowValue, currentPlayerPrevMoveColValue);
+		}
+	}
 }

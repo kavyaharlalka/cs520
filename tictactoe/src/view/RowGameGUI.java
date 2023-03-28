@@ -16,6 +16,7 @@ public class RowGameGUI implements View {
 
     private ArrayList<View> componentList = new ArrayList<>();
     private ComponentA componentA = new ComponentA();
+    private ComponentUndo componentUndo = new ComponentUndo();
 
     /**
      * Creates a new game initializing the GUI.
@@ -50,6 +51,9 @@ public class RowGameGUI implements View {
                 controller.resetGame();
             }
         });
+
+        componentUndo.init(options, controller);
+        this.addComponent(componentUndo);
     }
 
     /**
@@ -76,6 +80,7 @@ public class RowGameGUI implements View {
      */
     public void endGame() {
         componentA.endGame();
+        componentUndo.endGame();
     }
 
     public void addComponent(View component) {
