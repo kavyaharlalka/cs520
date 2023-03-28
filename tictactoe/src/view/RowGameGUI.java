@@ -6,16 +6,18 @@ import javax.swing.JTextArea;
 import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 import model.RowGameModel;
 import controller.RowGameController;
 
-public class RowGameGUI {
+public class RowGameGUI implements View {
     public JFrame gui = new JFrame("Tic Tac Toe");
     public RowGameModel gameModel = new RowGameModel();
     public JButton[][] blocks = new JButton[3][3];
     public JButton reset = new JButton("Reset");
-    public JTextArea playerturn = new JTextArea();
+
+    private ArrayList<View> componentList = new ArrayList<>();
 
     /**
      * Creates a new game initializing the GUI.
@@ -38,8 +40,10 @@ public class RowGameGUI {
         gui.add(options, BorderLayout.CENTER);
         gui.add(messages, BorderLayout.SOUTH);
 
-        messages.add(playerturn);
-        playerturn.setText("Player 1 to play 'X'");
+        ComponentC componentC = new ComponentC();
+        componentList.add(componentC);
+
+        messages.add(componentC.getPlayerTurn());
 
         reset.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -71,7 +75,19 @@ public class RowGameGUI {
      * @param column The column that contains the block
      */
     public void updateBlock(RowGameModel gameModel, int row, int column) {
-	blocks[row][column].setText(gameModel.blocksData[row][column].getContents());
-	blocks[row][column].setEnabled(gameModel.blocksData[row][column].getIsLegalMove());
+        if (row >= 0) {
+            blocks[row][column].setText(gameModel.blocksData[row][column].getContents());
+            blocks[row][column].setEnabled(gameModel.blocksData[row][column].getIsLegalMove());
+        }
+
+        for (View component : componentList) {
+            component.update(gameModel, row, column);
+        }
+    }
+
+    @Override
+    public void update(RowGameModel model, int row, int column) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 }
