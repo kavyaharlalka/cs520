@@ -24,9 +24,9 @@ public class RowGameController {
 
         for(int row = 0; row<3; row++) {
             for(int column = 0; column<3 ;column++) {
-	        gameModel.blocksData[row][column].setContents("");
-		gameModel.blocksData[row][column].setIsLegalMove(true);
-		gameView.updateBlock(gameModel,row,column);
+				gameModel.blocksData[row][column].setContents("");
+				gameModel.blocksData[row][column].setIsLegalMove(true);
+				gameView.update(gameModel,row,column);
             }
         }
     }
@@ -48,7 +48,7 @@ public class RowGameController {
 	    // Check whether player 1 won
 	    if(gameView.checkIfBlockAtRowCol(block,0,0)) {
 		gameModel.blocksData[0][0].setContents("X");
-		gameView.updateBlock(gameModel,0,0);
+		gameView.update(gameModel,0,0);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[0][0].getContents().equals(gameModel.blocksData[0][1].getContents()) &&
@@ -68,7 +68,7 @@ public class RowGameController {
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,0,1)) {
 		gameModel.blocksData[0][1].setContents("X");
-		gameView.updateBlock(gameModel,0,1);
+		gameView.update(gameModel,0,1);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[0][1].getContents().equals(gameModel.blocksData[0][0].getContents()) &&
@@ -86,7 +86,7 @@ public class RowGameController {
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,0,2)) {
 		gameModel.blocksData[0][2].setContents("X");
-		gameView.updateBlock(gameModel,0,2);
+		gameView.update(gameModel,0,2);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[0][2].getContents().equals(gameModel.blocksData[0][1].getContents()) &&
@@ -106,7 +106,7 @@ public class RowGameController {
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,1,0)) {
 		gameModel.blocksData[1][0].setContents("X");
-		gameView.updateBlock(gameModel,1,0);
+		gameView.update(gameModel,1,0);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[1][0].getContents().equals(gameModel.blocksData[1][1].getContents()) &&
@@ -124,7 +124,7 @@ public class RowGameController {
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,1,1)) {
 		gameModel.blocksData[1][1].setContents("X");
-		gameView.updateBlock(gameModel,1,1);
+		gameView.update(gameModel,1,1);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[1][1].getContents().equals(gameModel.blocksData[1][0].getContents()) &&
@@ -146,7 +146,7 @@ public class RowGameController {
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,1,2)) {
 		gameModel.blocksData[1][2].setContents("X");
-		gameView.updateBlock(gameModel,1,2);
+		gameView.update(gameModel,1,2);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[1][2].getContents().equals(gameModel.blocksData[0][2].getContents()) &&
@@ -164,7 +164,7 @@ public class RowGameController {
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,2,0)) {
 		gameModel.blocksData[2][0].setContents("X");
-		gameView.updateBlock(gameModel,2,0);
+		gameView.update(gameModel,2,0);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[2][0].getContents().equals(gameModel.blocksData[2][1].getContents()) &&
@@ -184,7 +184,7 @@ public class RowGameController {
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,2,1)) {
 		gameModel.blocksData[2][1].setContents("X");
-		gameView.updateBlock(gameModel,2,1);
+		gameView.update(gameModel,2,1);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[2][1].getContents().equals(gameModel.blocksData[2][0].getContents()) &&
@@ -202,7 +202,7 @@ public class RowGameController {
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,2,2)) {
 		gameModel.blocksData[2][2].setContents("X");
-		gameView.updateBlock(gameModel,2,2);
+		gameView.update(gameModel,2,2);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[2][2].getContents().equals(gameModel.blocksData[2][1].getContents()) &&
@@ -225,7 +225,7 @@ public class RowGameController {
 	    // Check whether player 2 won
 	    if(gameView.checkIfBlockAtRowCol(block,0,0)) {
 		gameModel.blocksData[0][0].setContents("O");
-		gameView.updateBlock(gameModel,0,0);
+		gameView.update(gameModel,0,0);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[0][0].getContents().equals(gameModel.blocksData[0][1].getContents()) &&
@@ -245,7 +245,7 @@ public class RowGameController {
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,0,1)) {
 		gameModel.blocksData[0][1].setContents("O");
-		gameView.updateBlock(gameModel,0,1);
+		gameView.update(gameModel,0,1);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[0][1].getContents().equals(gameModel.blocksData[0][0].getContents()) &&
@@ -263,7 +263,7 @@ public class RowGameController {
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,0,2)) {
 		gameModel.blocksData[0][2].setContents("O");
-		gameView.updateBlock(gameModel,0,2);
+		gameView.update(gameModel,0,2);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[0][2].getContents().equals(gameModel.blocksData[0][1].getContents()) &&
@@ -283,7 +283,7 @@ public class RowGameController {
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,1,0)) {
 		gameModel.blocksData[1][0].setContents("O");
-		gameView.updateBlock(gameModel,1,0);
+		gameView.update(gameModel,1,0);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[1][0].getContents().equals(gameModel.blocksData[1][1].getContents()) &&
@@ -301,7 +301,7 @@ public class RowGameController {
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,1,1)) {
 		gameModel.blocksData[1][1].setContents("O");
-		gameView.updateBlock(gameModel,1,1);
+		gameView.update(gameModel,1,1);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[1][1].getContents().equals(gameModel.blocksData[1][0].getContents()) &&
@@ -323,7 +323,7 @@ public class RowGameController {
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,1,2)) {
 		gameModel.blocksData[1][2].setContents("O");
-		gameView.updateBlock(gameModel,1,2);
+		gameView.update(gameModel,1,2);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[1][2].getContents().equals(gameModel.blocksData[0][2].getContents()) &&
@@ -341,7 +341,7 @@ public class RowGameController {
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,2,0)) {
 		gameModel.blocksData[2][0].setContents("O");
-		gameView.updateBlock(gameModel,2,0);
+		gameView.update(gameModel,2,0);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[2][0].getContents().equals(gameModel.blocksData[2][1].getContents()) &&
@@ -361,7 +361,7 @@ public class RowGameController {
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,2,1)) {
 		gameModel.blocksData[2][1].setContents("O");
-		gameView.updateBlock(gameModel,2,1);
+		gameView.update(gameModel,2,1);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[2][1].getContents().equals(gameModel.blocksData[2][0].getContents()) &&
@@ -379,7 +379,7 @@ public class RowGameController {
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,2,2)) {
 		gameModel.blocksData[2][2].setContents("O");
-		gameView.updateBlock(gameModel,2,2);
+		gameView.update(gameModel,2,2);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
 		    if((gameModel.blocksData[2][2].getContents().equals(gameModel.blocksData[2][1].getContents()) &&
@@ -401,7 +401,7 @@ public class RowGameController {
 	}
 
 	if (gameModel.getFinalResult() != null) {
-		gameView.updateBlock(gameModel,-1,-1);
+		gameView.update(gameModel,-1,-1);
 	}
 
     }
@@ -425,7 +425,7 @@ public class RowGameController {
             for(int column = 0;column<3;column++) {
                 gameModel.blocksData[row][column].reset();
 		gameModel.blocksData[row][column].setIsLegalMove(true);
-		gameView.updateBlock(gameModel,row,column);
+		gameView.update(gameModel,row,column);
             }
         }
 		

@@ -12,7 +12,6 @@ import controller.RowGameController;
 
 public class RowGameGUI implements View {
     public JFrame gui = new JFrame("Tic Tac Toe");
-    public RowGameModel gameModel = new RowGameModel();
     public JButton reset = new JButton("Reset");
 
     private ArrayList<View> componentList = new ArrayList<>();
@@ -61,21 +60,11 @@ public class RowGameGUI implements View {
      * @param row The row that contains the block
      * @param column The column that contains the block
      */
-    public void updateBlock(RowGameModel gameModel, int row, int column) {
-        // if (row >= 0) {
-        //     blocks[row][column].setText(gameModel.blocksData[row][column].getContents());
-        //     blocks[row][column].setEnabled(gameModel.blocksData[row][column].getIsLegalMove());
-        // }
-
-        for (View component : componentList) {
-            component.update(gameModel, row, column);
-        }
-    }
-
     @Override
     public void update(RowGameModel model, int row, int column) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        for (View component : componentList) {
+            component.update(model, row, column);
+        }
     }
 
     public boolean checkIfBlockAtRowCol(JButton block, int row, int column) {
