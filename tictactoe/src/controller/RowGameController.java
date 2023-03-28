@@ -38,16 +38,12 @@ public class RowGameController {
      */
     public void move(JButton block) {
 	gameModel.movesLeft--;
-	// if(gameModel.movesLeft%2 == 1) {
-	//     gameView.playerturn.setText("'X': Player 1");
-	// } else{
-	//     gameView.playerturn.setText("'O': Player 2");
-	// }
 	
 	if(gameModel.getCurrentPlayer() == Player.Player_1) {
 	    // Check whether player 1 won
 	    if(gameView.checkIfBlockAtRowCol(block,0,0)) {
 		gameModel.blocksData[0][0].setContents("X");
+		gameModel.blocksData[0][0].setIsLegalMove(false);
 		gameView.update(gameModel,0,0);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
@@ -62,12 +58,10 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,0,1)) {
 		gameModel.blocksData[0][1].setContents("X");
+		gameModel.blocksData[0][1].setIsLegalMove(false);
 		gameView.update(gameModel,0,1);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
@@ -80,12 +74,10 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,0,2)) {
 		gameModel.blocksData[0][2].setContents("X");
+		gameModel.blocksData[0][2].setIsLegalMove(false);
 		gameView.update(gameModel,0,2);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
@@ -100,12 +92,10 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,1,0)) {
 		gameModel.blocksData[1][0].setContents("X");
+		gameModel.blocksData[1][0].setIsLegalMove(false);
 		gameView.update(gameModel,1,0);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
@@ -118,12 +108,10 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,1,1)) {
 		gameModel.blocksData[1][1].setContents("X");
+		gameModel.blocksData[1][1].setIsLegalMove(false);
 		gameView.update(gameModel,1,1);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
@@ -140,12 +128,10 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,1,2)) {
 		gameModel.blocksData[1][2].setContents("X");
+		gameModel.blocksData[1][2].setIsLegalMove(false);
 		gameView.update(gameModel,1,2);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
@@ -158,12 +144,10 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,2,0)) {
 		gameModel.blocksData[2][0].setContents("X");
+		gameModel.blocksData[2][0].setIsLegalMove(false);
 		gameView.update(gameModel,2,0);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
@@ -178,12 +162,10 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,2,1)) {
 		gameModel.blocksData[2][1].setContents("X");
+		gameModel.blocksData[2][1].setIsLegalMove(false);
 		gameView.update(gameModel,2,1);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
@@ -196,12 +178,10 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,2,2)) {
 		gameModel.blocksData[2][2].setContents("X");
+		gameModel.blocksData[2][2].setIsLegalMove(false);
 		gameView.update(gameModel,2,2);
 		gameModel.setCurrentPlayer(Player.Player_2);
 		if(gameModel.movesLeft<7) {
@@ -216,15 +196,13 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    }
 	} else {
 	    // Check whether player 2 won
 	    if(gameView.checkIfBlockAtRowCol(block,0,0)) {
 		gameModel.blocksData[0][0].setContents("O");
+		gameModel.blocksData[0][0].setIsLegalMove(false);
 		gameView.update(gameModel,0,0);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
@@ -239,12 +217,10 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,0,1)) {
 		gameModel.blocksData[0][1].setContents("O");
+		gameModel.blocksData[0][1].setIsLegalMove(false);
 		gameView.update(gameModel,0,1);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
@@ -257,12 +233,10 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,0,2)) {
 		gameModel.blocksData[0][2].setContents("O");
+		gameModel.blocksData[0][2].setIsLegalMove(false);
 		gameView.update(gameModel,0,2);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
@@ -277,12 +251,10 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,1,0)) {
 		gameModel.blocksData[1][0].setContents("O");
+		gameModel.blocksData[1][0].setIsLegalMove(false);
 		gameView.update(gameModel,1,0);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
@@ -295,12 +267,10 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,1,1)) {
 		gameModel.blocksData[1][1].setContents("O");
+		gameModel.blocksData[1][1].setIsLegalMove(false);
 		gameView.update(gameModel,1,1);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
@@ -317,12 +287,10 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,1,2)) {
 		gameModel.blocksData[1][2].setContents("O");
+		gameModel.blocksData[1][2].setIsLegalMove(false);
 		gameView.update(gameModel,1,2);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
@@ -335,12 +303,10 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,2,0)) {
 		gameModel.blocksData[2][0].setContents("O");
+		gameModel.blocksData[2][0].setIsLegalMove(false);
 		gameView.update(gameModel,2,0);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
@@ -355,12 +321,10 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,2,1)) {
 		gameModel.blocksData[2][1].setContents("O");
+		gameModel.blocksData[2][1].setIsLegalMove(false);
 		gameView.update(gameModel,2,1);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
@@ -373,12 +337,10 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    } else if(gameView.checkIfBlockAtRowCol(block,2,2)) {
 		gameModel.blocksData[2][2].setContents("O");
+		gameModel.blocksData[2][2].setIsLegalMove(false);
 		gameView.update(gameModel,2,2);
 		gameModel.setCurrentPlayer(Player.Player_1);
 		if(gameModel.movesLeft<7) {
@@ -393,9 +355,6 @@ public class RowGameController {
 		    } else if(gameModel.movesLeft==0) {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
-		    // if (gameModel.getFinalResult() != null) {
-			// gameView.playerturn.setText(gameModel.getFinalResult());
-		    // }
 		}
 	    }
 	}

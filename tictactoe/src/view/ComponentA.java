@@ -48,7 +48,7 @@ public class ComponentA implements View {
             RowBlockModel currentBlockModel = model.blocksData[row][column];
             String blockContent = currentBlockModel.getContents();
             currentBlock.setText(blockContent);
-            currentBlock.setEnabled(blockContent.isEmpty() ? currentBlockModel.getIsLegalMove() : false);
+            currentBlock.setEnabled(currentBlockModel.getIsLegalMove());
         }
     }
 }
