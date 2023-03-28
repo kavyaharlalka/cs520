@@ -10,7 +10,7 @@ public class RowGameModel
     /**
      * The current player taking their turn
      */
-    public String player = "1";
+    private Player player = Player.Player_1;
     public int movesLeft = 9;
 
     private String finalResult = null;
@@ -32,5 +32,13 @@ public class RowGameModel
 
     public void setFinalResult(String finalResult) {
 	this.finalResult = finalResult;
+    }
+
+    public void setCurrentPlayer(Player player) {
+        this.player = player;
+    }  
+
+    public Player getCurrentPlayer() {
+        return player;
     }
 }
