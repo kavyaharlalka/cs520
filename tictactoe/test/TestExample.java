@@ -20,12 +20,12 @@ public class TestExample {
 
     @Before
     public void setUp() {
-	game = new RowGameController();
+	    game = new RowGameController();
     }
 
     @After
     public void tearDown() {
-	game = null;
+	    game = null;
     }
 
     @Test
@@ -35,8 +35,8 @@ public class TestExample {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void testNewBlockViolatesPrecondition() {
-	RowBlockModel block = new RowBlockModel(null);
+        public void testNewBlockViolatesPrecondition() {
+        RowBlockModel block = new RowBlockModel(null);
     }
     
     // Test Case 1: After performing an illegal move, the game is not updated.

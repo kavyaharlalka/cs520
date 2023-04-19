@@ -394,15 +394,31 @@ public class RowGameController {
 		gameView.update(gameModel,-1,-1);
     }
 
+    /**
+     * Undoes the last move made by the current player
+     * The current player can undo only their own last move
+	 * Does not allow undo of more than one move
+	 * 
+     * @param playerToRowColValueMap It stores the player mapped to their last move. 
+     */
 	public void undoLastMove(Map<Player, RowColValue> playerToRowColValueMap) {
 		RowColValue currentPlayerPrevMoveRowColValue = playerToRowColValueMap.get(gameModel.getCurrentPlayer());
+
+		// Check if the player made any moves
 		if (currentPlayerPrevMoveRowColValue != null) {
 			int currentPlayerPrevMoveRowValue = currentPlayerPrevMoveRowColValue.getRowValue();
 			int currentPlayerPrevMoveColValue = currentPlayerPrevMoveRowColValue.getColValue();
-
+			
+			// Increase number of moves left
 			gameModel.movesLeft++;
+
+			// Reset contents of the block that had the last move made by the current player
 			gameModel.blocksData[currentPlayerPrevMoveRowValue][currentPlayerPrevMoveColValue].reset();
+
+			// The block is now a valid legal move, hence set IsLegalMove
 			gameModel.blocksData[currentPlayerPrevMoveRowValue][currentPlayerPrevMoveColValue].setIsLegalMove(true);
+
+			// Call update to update the game board
 			gameView.update(gameModel,currentPlayerPrevMoveRowValue, currentPlayerPrevMoveColValue);
 		}
 	}
