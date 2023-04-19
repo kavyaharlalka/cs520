@@ -43,7 +43,7 @@ public class RowGameController {
 	
 	if(gameModel.getCurrentPlayer() == Player.Player_1) {
 	    // Check whether player 1 won
-	    if(gameView.checkIfBlockAtRowCol(block,0,0)) {
+	    if(gameView.checkIfBlockAtRowCol(gameModel,block,0,0)) {
 		gameModel.blocksData[0][0].setContents("X");
 		gameModel.blocksData[0][0].setIsLegalMove(false);
 		gameView.update(gameModel,0,0);
@@ -61,7 +61,7 @@ public class RowGameController {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
 		}
-	    } else if(gameView.checkIfBlockAtRowCol(block,0,1)) {
+	    } else if(gameView.checkIfBlockAtRowCol(gameModel,block,0,1)) {
 		gameModel.blocksData[0][1].setContents("X");
 		gameModel.blocksData[0][1].setIsLegalMove(false);
 		gameView.update(gameModel,0,1);
@@ -77,7 +77,7 @@ public class RowGameController {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
 		}
-	    } else if(gameView.checkIfBlockAtRowCol(block,0,2)) {
+	    } else if(gameView.checkIfBlockAtRowCol(gameModel,block,0,2)) {
 		gameModel.blocksData[0][2].setContents("X");
 		gameModel.blocksData[0][2].setIsLegalMove(false);
 		gameView.update(gameModel,0,2);
@@ -95,7 +95,7 @@ public class RowGameController {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
 		}
-	    } else if(gameView.checkIfBlockAtRowCol(block,1,0)) {
+	    } else if(gameView.checkIfBlockAtRowCol(gameModel,block,1,0)) {
 		gameModel.blocksData[1][0].setContents("X");
 		gameModel.blocksData[1][0].setIsLegalMove(false);
 		gameView.update(gameModel,1,0);
@@ -111,7 +111,7 @@ public class RowGameController {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
 		}
-	    } else if(gameView.checkIfBlockAtRowCol(block,1,1)) {
+	    } else if(gameView.checkIfBlockAtRowCol(gameModel,block,1,1)) {
 		gameModel.blocksData[1][1].setContents("X");
 		gameModel.blocksData[1][1].setIsLegalMove(false);
 		gameView.update(gameModel,1,1);
@@ -131,7 +131,7 @@ public class RowGameController {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
 		}
-	    } else if(gameView.checkIfBlockAtRowCol(block,1,2)) {
+	    } else if(gameView.checkIfBlockAtRowCol(gameModel,block,1,2)) {
 		gameModel.blocksData[1][2].setContents("X");
 		gameModel.blocksData[1][2].setIsLegalMove(false);
 		gameView.update(gameModel,1,2);
@@ -147,7 +147,7 @@ public class RowGameController {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
 		}
-	    } else if(gameView.checkIfBlockAtRowCol(block,2,0)) {
+	    } else if(gameView.checkIfBlockAtRowCol(gameModel,block,2,0)) {
 		gameModel.blocksData[2][0].setContents("X");
 		gameModel.blocksData[2][0].setIsLegalMove(false);
 		gameView.update(gameModel,2,0);
@@ -165,7 +165,7 @@ public class RowGameController {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
 		}
-	    } else if(gameView.checkIfBlockAtRowCol(block,2,1)) {
+	    } else if(gameView.checkIfBlockAtRowCol(gameModel,block,2,1)) {
 		gameModel.blocksData[2][1].setContents("X");
 		gameModel.blocksData[2][1].setIsLegalMove(false);
 		gameView.update(gameModel,2,1);
@@ -181,7 +181,7 @@ public class RowGameController {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
 		}
-	    } else if(gameView.checkIfBlockAtRowCol(block,2,2)) {
+	    } else if(gameView.checkIfBlockAtRowCol(gameModel,block,2,2)) {
 		gameModel.blocksData[2][2].setContents("X");
 		gameModel.blocksData[2][2].setIsLegalMove(false);
 		gameView.update(gameModel,2,2);
@@ -200,9 +200,13 @@ public class RowGameController {
 		    }
 		}
 	    }
+		else {
+			gameModel.movesLeft++;
+			return;
+		}
 	} else {
 	    // Check whether player 2 won
-	    if(gameView.checkIfBlockAtRowCol(block,0,0)) {
+	    if(gameView.checkIfBlockAtRowCol(gameModel,block,0,0)) {
 		gameModel.blocksData[0][0].setContents("O");
 		gameModel.blocksData[0][0].setIsLegalMove(false);
 		gameView.update(gameModel,0,0);
@@ -220,7 +224,7 @@ public class RowGameController {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
 		}
-	    } else if(gameView.checkIfBlockAtRowCol(block,0,1)) {
+	    } else if(gameView.checkIfBlockAtRowCol(gameModel,block,0,1)) {
 		gameModel.blocksData[0][1].setContents("O");
 		gameModel.blocksData[0][1].setIsLegalMove(false);
 		gameView.update(gameModel,0,1);
@@ -236,7 +240,7 @@ public class RowGameController {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
 		}
-	    } else if(gameView.checkIfBlockAtRowCol(block,0,2)) {
+	    } else if(gameView.checkIfBlockAtRowCol(gameModel,block,0,2)) {
 		gameModel.blocksData[0][2].setContents("O");
 		gameModel.blocksData[0][2].setIsLegalMove(false);
 		gameView.update(gameModel,0,2);
@@ -254,7 +258,7 @@ public class RowGameController {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
 		}
-	    } else if(gameView.checkIfBlockAtRowCol(block,1,0)) {
+	    } else if(gameView.checkIfBlockAtRowCol(gameModel,block,1,0)) {
 		gameModel.blocksData[1][0].setContents("O");
 		gameModel.blocksData[1][0].setIsLegalMove(false);
 		gameView.update(gameModel,1,0);
@@ -270,7 +274,7 @@ public class RowGameController {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
 		}
-	    } else if(gameView.checkIfBlockAtRowCol(block,1,1)) {
+	    } else if(gameView.checkIfBlockAtRowCol(gameModel,block,1,1)) {
 		gameModel.blocksData[1][1].setContents("O");
 		gameModel.blocksData[1][1].setIsLegalMove(false);
 		gameView.update(gameModel,1,1);
@@ -290,7 +294,7 @@ public class RowGameController {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
 		}
-	    } else if(gameView.checkIfBlockAtRowCol(block,1,2)) {
+	    } else if(gameView.checkIfBlockAtRowCol(gameModel,block,1,2)) {
 		gameModel.blocksData[1][2].setContents("O");
 		gameModel.blocksData[1][2].setIsLegalMove(false);
 		gameView.update(gameModel,1,2);
@@ -306,7 +310,7 @@ public class RowGameController {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
 		}
-	    } else if(gameView.checkIfBlockAtRowCol(block,2,0)) {
+	    } else if(gameView.checkIfBlockAtRowCol(gameModel,block,2,0)) {
 		gameModel.blocksData[2][0].setContents("O");
 		gameModel.blocksData[2][0].setIsLegalMove(false);
 		gameView.update(gameModel,2,0);
@@ -324,7 +328,7 @@ public class RowGameController {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
 		}
-	    } else if(gameView.checkIfBlockAtRowCol(block,2,1)) {
+	    } else if(gameView.checkIfBlockAtRowCol(gameModel,block,2,1)) {
 		gameModel.blocksData[2][1].setContents("O");
 		gameModel.blocksData[2][1].setIsLegalMove(false);
 		gameView.update(gameModel,2,1);
@@ -340,7 +344,7 @@ public class RowGameController {
 			gameModel.setFinalResult(RowGameModel.GAME_END_NOWINNER);
 		    }
 		}
-	    } else if(gameView.checkIfBlockAtRowCol(block,2,2)) {
+	    } else if(gameView.checkIfBlockAtRowCol(gameModel,block,2,2)) {
 		gameModel.blocksData[2][2].setContents("O");
 		gameModel.blocksData[2][2].setIsLegalMove(false);
 		gameView.update(gameModel,2,2);
@@ -359,6 +363,10 @@ public class RowGameController {
 		    }
 		}
 	    }
+		else {
+			gameModel.movesLeft++;
+			return;
+		}
 	}
 
 	if (gameModel.getFinalResult() != null) {

@@ -71,8 +71,12 @@ public class RowGameGUI implements View {
         }
     }
 
-    public boolean checkIfBlockAtRowCol(JButton block, int row, int column) {
-        return componentA.checkIfBlockAtRowCol(block, row, column);
+    public boolean checkIfBlockAtRowCol(RowGameModel model, JButton block, int row, int column) {
+        if (componentA.checkIfBlockAtRowCol(block, row, column)) {
+            return model.blocksData[row][column].getIsLegalMove();
+        }
+
+        return false;
     }
 
     /**

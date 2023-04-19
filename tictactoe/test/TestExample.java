@@ -49,12 +49,12 @@ public class TestExample {
         assertEquals(Player.Player_2, game.gameModel.getCurrentPlayer());
         assertEquals(8, game.gameModel.movesLeft);
 
-        //Now do an illegal move at the same block
+        //Now do an illegal move at the same block, it should be unsuccesful (all values remain the same)
         game.move(game.gameView.getComponentA().getBlocksData()[1][1]);
-        assertEquals("O", game.gameModel.blocksData[1][1].getContents());
+        assertEquals("X", game.gameModel.blocksData[1][1].getContents());
         assertEquals(false, game.gameModel.blocksData[1][1].getIsLegalMove());
-        assertEquals(Player.Player_1, game.gameModel.getCurrentPlayer());
-        assertEquals(7, game.gameModel.movesLeft);
+        assertEquals(Player.Player_2, game.gameModel.getCurrentPlayer());
+        assertEquals(8, game.gameModel.movesLeft);
     }
 
     // Test Case 2: After a performing a legal move, the game is updated appropriately.
