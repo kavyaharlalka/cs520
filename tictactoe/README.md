@@ -1,20 +1,26 @@
 # TicTacToe
 
-### How to build and test (from Terminal):
+### How to run the game (from Terminal):
 
-1. Make sure that you have Apache Ant installed. Run each ant command in the tictactoe folder, which contains the `build.xml` build file.
+Open terminal in the tictactoe folder and run the following commands :-
 
-2. Run `ant document` to generate the javadoc (a hypertext description) for all of the java classes. Generated hypertext description will be in the `jdoc` folder. Open the `index.html` file. 
+1. Building the project using `ant` 
 
-3. Run `ant compile` to compile all of the java classes. Compiled classes will be in the `bin` folder.
+2. Run the game using `java -cp bin RowGameApp`
 
-4. Run `ant test` to run all unit tests.
+### Aim of the game
 
-### How to run (from Terminal):
+Each player targets getting three of their icons (`x` or `o`) together either horizontally, vertically or diagonally while the other player tries to thwart their attempts to do that. 
 
-1. After building the project (i.e., running `ant`), run the following command in the tictactoe folder:
-   `java -cp bin RowGameApp`
+### Instructions
 
-### How to clean up (from Terminal):
+1. Player 1 in the game plays `x` and gets the first chance.
 
-1. Run `ant clean` to clean the project (i.e., delete all generated files).
+2. Player 2 in the game plays `o` and gets the second chance.
+
+3. At any point, the complete board can be reset using the reset button.
+
+4. Each player can undo only their last move using the undo button. After that, they have to play their turn by placing their icon `x` or `o` anywhere on the board.
+
+### How to win
+Whoever is succesful first in placing three of their icons together, WINS! If neither player is succesful, the game ends in a draw.
