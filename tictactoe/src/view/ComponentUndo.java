@@ -61,4 +61,8 @@ public class ComponentUndo implements View {
             playerToRowColValueMap.put(player, null);
         }
     }
+
+    public boolean getButtonUndoStatus(){
+        return undo.isEnabled();
+    }
 }

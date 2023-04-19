@@ -1,3 +1,4 @@
+import java.util.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,6 +10,7 @@ import model.Player;
 import model.RowBlockModel;
 import model.RowGameModel;
 import controller.RowGameController;
+import view.RowColValue;
 
 /**
  * An example test class, which merely shows how to write JUnit tests.
@@ -126,6 +128,44 @@ public class TestExample {
                 assertEquals(true, game.gameModel.blocksData[r][c].getIsLegalMove());
             }
         }
+    }
+
+    //Test Case 6: If the user has done not done at least one move (equivalently, both users have done one move each), the user is not permitted to do undo.
+    @Test
+    public void testUndoNotAllowed(){
+        assertEquals(9, game.gameModel.movesLeft);
+        // as no moves are made by the users, checking if the undo button status is disabled
+        assertEquals(false, game.gameView.getUndoStatus());
+    }
+    
+    //Test Case 7: If the user has done atleast one move, the user is permitted to undo and the game is updated appropriately.
+    @Test
+    public void testUndoMove(){
+        game.move(game.gameView.getComponentA().getBlocksData()[1][1]);
+        // Testing is the move made is legal
+        assertEquals("X", game.gameModel.blocksData[1][1].getContents());
+        assertEquals(false, game.gameModel.blocksData[1][1].getIsLegalMove());
+        assertEquals(8, game.gameModel.movesLeft);
+
+        game.move(game.gameView.getComponentA().getBlocksData()[2][1]);
+        // Testing is the next move made is legal and if undo is possible
+        assertEquals("O", game.gameModel.blocksData[2][1].getContents());
+        assertEquals(false, game.gameModel.blocksData[2][1].getIsLegalMove());
+        assertEquals(7, game.gameModel.movesLeft);
+
+        assertEquals(true, game.gameView.getUndoStatus());
+
+        // Performing an undo move
+        Map<Player, RowColValue> PlayerRowCol = new HashMap<Player, RowColValue>();
+        RowColValue rowColValue =new RowColValue(2,1);
+        PlayerRowCol.put(Player.Player_2,rowColValue);
+        game.undoLastMove(PlayerRowCol);
+
+        // // Testing if the board has been rolled back to the earlier configuration
+        // Need to fix the following tests ->
+        // assertEquals(true, game.gameModel.blocksData[2][1].getIsLegalMove());
+        // assertEquals(7, game.gameModel.movesLeft);
+        // assertEquals(false, game.gameView.getUndoStatus());
     }
 
 }

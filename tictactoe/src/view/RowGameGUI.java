@@ -94,4 +94,8 @@ public class RowGameGUI implements View {
     public ComponentA getComponentA(){
         return this.componentA;
     }
+
+    public boolean getUndoStatus(){
+        return componentUndo.getButtonUndoStatus();
+    }
 }
