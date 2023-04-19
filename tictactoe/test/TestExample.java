@@ -156,16 +156,16 @@ public class TestExample {
         assertEquals(true, game.gameView.getUndoStatus());
 
         // Performing an undo move
+        game.gameModel.setCurrentPlayer(Player.Player_2);
         Map<Player, RowColValue> PlayerRowCol = new HashMap<Player, RowColValue>();
-        RowColValue rowColValue =new RowColValue(2,1);
-        PlayerRowCol.put(Player.Player_2,rowColValue);
+        RowColValue rowColValue = new RowColValue(2,1);
+        PlayerRowCol.put(Player.Player_2, rowColValue);
         game.undoLastMove(PlayerRowCol);
 
-        // // Testing if the board has been rolled back to the earlier configuration
-        // Need to fix the following tests ->
-        // assertEquals(true, game.gameModel.blocksData[2][1].getIsLegalMove());
-        // assertEquals(7, game.gameModel.movesLeft);
-        // assertEquals(false, game.gameView.getUndoStatus());
+        // Testing if the board has been rolled back to the earlier configuration
+        assertEquals(true, game.gameModel.blocksData[2][1].getIsLegalMove());
+        assertEquals(8, game.gameModel.movesLeft);
+        assertEquals(false, game.gameView.getUndoStatus());
     }
 
 }
