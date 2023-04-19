@@ -51,4 +51,8 @@ public class ComponentA implements View {
             currentBlock.setEnabled(currentBlockModel.getIsLegalMove());
         }
     }
+
+    public JButton[][] getBlocksData(){
+        return this.blocks;
+    }
 }

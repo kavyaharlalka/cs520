@@ -90,4 +90,8 @@ public class RowGameGUI implements View {
     public void removeComponent(View component) {
         componentList.remove(component);
     }
+
+    public ComponentA getComponentA(){
+        return this.componentA;
+    }
 }
